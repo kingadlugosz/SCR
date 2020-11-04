@@ -1,0 +1,42 @@
+Zad. 2
+
+Po uruchomieniu trzykrotnie basha w terminalu otrzymujemy:
+
+
+kinga@kinga-VirtualBox:/studia/SCR2/Lab2$ ps f
+  PID TTY      STAT   TIME COMMAND
+ 1587 pts/2    Ss     0:00 -bash
+ 2387 pts/2    S      0:00  \_ bash
+ 2493 pts/2    S      0:00      \_ bash
+ 2604 pts/2    R+     0:00          \_ ps f
+
+Nastepnie po zabiciu procesu w środku otrzymujemy:
+
+kinga@kinga-VirtualBox:/studia/SCR2/Lab2$ kill -9 2387
+kinga@kinga-VirtualBox:/studia/SCR2/Lab2$ Killed
+kinga@kinga-VirtualBox:/studia/SCR2/Lab2$ ps f
+  PID TTY      STAT   TIME COMMAND
+ 2493 pts/2    S      0:00 bash
+ 1587 pts/2    Ss     0:00 -bash
+ 2847 pts/2    R+     0:00  \_ ps f
+
+Zad. 3
+
+kinga@kinga-VirtualBox:/studia/SCR2/Lab2$ ./main.c | grep aaa | cat &
+kinga@kinga-VirtualBox:/studia/SCR2/Lab2$ ps f
+  PID TTY      STAT   TIME COMMAND
+ 1587 pts/2    Ss     0:00 -bash
+ 3542 pts/2    R      0:01  _ /bin/c ./main.c
+ 3543 pts/2    S      0:00  _ grep --color=auto aaa
+ 3544 pts/2    S      0:00  _ cat
+ 3545 pts/2    R+     0:00  _ ps f
+
+kinga@kinga-VirtualBox:/studia/SCR2/Lab2$ ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+kinga      5587  5282  0 20:15 pts/3    00:00:00 /bin/bash
+kinga      5795  5587 91 20:15 pts/3    00:00:02 /bin/c ./main.c
+kinga      5796  5587 14 20:16 pts/3    00:00:00 grep --color=auto qwertyu
+kinga      5797  5587  0 20:16 pts/3    00:00:00 cat
+kinga      5799  5587  0 20:16 pts/3    00:00:00 ps -f
+
+Polecenia są wszystkie dziecmi bash'a
