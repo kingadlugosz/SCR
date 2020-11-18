@@ -1,0 +1,63 @@
+Widok z terminala po wejściu do folderu zawierającego informacje o procesach: 
+
+kinga@kinga-VirtualBox:/home$ cd ..
+kinga@kinga-VirtualBox:/$ ls
+bin   cdrom  etc   lib    lost+found  mnt  proc  run   srv       sys  usr
+boot  dev    home  lib64  media       opt  root  sbin  swapfile  tmp  var
+kinga@kinga-VirtualBox:/$ cd proc
+kinga@kinga-VirtualBox:/proc$ ls
+1     1101  133   2360  612   891        devices      mtrr
+10    1126  1333  2373  6148  8963       diskstats    net
+1000  1127  134   2393  618   9          dma          pagetypeinfo
+1005  1140  135   24    627   9454       driver       partitions
+1012  1157  136   2507  686   9544       execdomains  pressure
+.
+.
+.
+.
+11    1325  234   594   884   cpuinfo    modules
+1100  1329  236   6     886   crypto     mounts
+
+----------------------------------------------------
+Wybranie procesu odpowiadającemu pewnemu programowi i odczytanie statusu:
+
+kinga@kinga-VirtualBox:/proc$ cd /proc/53479
+kinga@kinga-VirtualBox:/proc/53479$ ls
+arch_status      environ    mountinfo      personality   statm
+attr             exe        mounts         projid_map    status
+autogroup        fd         mountstats     root          syscall
+auxv             fdinfo     net            sched         task
+cgroup           gid_map    ns             schedstat     timers
+clear_refs       io         numa_maps      sessionid     timerslack_ns
+cmdline          limits     oom_adj        setgroups     uid_map
+comm             loginuid   oom_score      smaps         wchan
+coredump_filter  map_files  oom_score_adj  smaps_rollup
+cpuset           maps       pagemap        stack
+cwd              mem        patch_state    stat
+kinga@kinga-VirtualBox:/proc/53479$ cat status
+Name:	prog2
+Umask:	0022
+State:	S (sleeping)
+Tgid:	53479
+Ngid:	0
+Pid:	53479
+PPid:	876
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	256
+Groups:	4 24 27 30 46 115 135 1000 
+NStgid:	53479
+NSpid:	53479
+NSpgid:	53479
+NSsid:	1926
+VmPeak:	   62024 kB
+VmSize:	   61944 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	   34656 kB
+.
+.
+.
+
+
