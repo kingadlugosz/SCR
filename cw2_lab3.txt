@@ -1,0 +1,55 @@
+Program do zadania (w piwrwszym ćwiczeniu wykorzystałam program z pythona, jednak moje umimejętności w pythonie są jeszcze na tyle ograniczone, że do tego zadania zrezygnowałam z pythona):
+------------------------------------
+
+#include <stdio.h>
+#include <signal.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+void pktA()
+	{
+		printf("podpunkt a)\n");
+		exit(0);
+	}
+
+void pktB()
+	{
+		printf("podpunkt b)\n");
+	}
+
+void pktC()
+	{
+		printf("podpunkt c)\n");
+		for (int i=0; i<100; i++)
+			{
+				printf("\d \n", i);
+				sleep(1);
+			}
+	}
+void pktD()
+	{
+	}
+
+int main()
+{
+	signal(SIGTERM, pktA);
+	signal(SIGALRM, pktB);
+	signal(SIGUSR1, pktC);
+	signal(SIGUSR2, pktD);
+
+	int i=0;
+
+	while(1){
+		printf("%d", i++);
+		sleep(1);
+		}
+return 0;
+}
+
+------------------------------------
+
+Do programu działajającego analogicznie jak ten z ćwiczenia 1, dodano signal handlery. 
+kill - komunikat o kończeniu programu;
+SIGALRM - komunikat alarmowy
+SIGUSR1 - komunikat o wstrzymaniu pracy programu na 10 iteracji i pominieciu ich
+SIGUSR2 - nic się nie dzieje
