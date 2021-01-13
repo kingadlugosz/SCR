@@ -1,0 +1,169 @@
+LAB 7
+Kinga Długosz 249002
+
+-------------------------------------------
+
+Zad 1
+
+Po uruchomieniu można zauważyć, że wątki wykonywane są w różnych kolejnościach, czasem losowo, czasem w danej kolejności. Nie wszystkie wątki zostały jeszcze stworzone, a niektóre już się zaczynają wykonywać. 
+Losowość wynika z algorytmów szeregowania zadań w systemie.
+
+Created thread 0
+Created thread 1
+Created thread 2
+Created thread 3
+Hello SCR! Written by thread #0!
+Created thread 4
+Created thread 5
+Created thread 6
+Created thread 7
+Hello SCR! Written by thread #7!
+Hello SCR! Written by thread #6!
+Hello SCR! Written by thread #5!
+Hello SCR! Written by thread #4!
+Hello SCR! Written by thread #1!
+Hello SCR! Written by thread #2!
+Hello SCR! Written by thread #3!
+
+--------------------------------------------------
+
+Zad 2
+
+Losowość wyświetlania wątków wynika z algorytmów szeregowania zadań w systemie. 
+Dodając funkcję  sleep użytkownik oczekuje utworzenia wszystkich wątków, a ich wyświetlenie nie jest takie same.
+
+main(): Created 32 threads.
+0: Hello World!
+1: Hello World!
+2: Hello World!
+3: Hello World!
+4: Hello World!
+5: Hello World!
+6: Hello World!
+7: Hello World!
+8: Hello World!
+9: Hello World!
+10: Hello World!
+12: Hello World!
+14: Hello World!
+15: Hello World!
+16: Hello World!
+17: Hello World!
+18: Hello World!
+19: Hello World!
+21: Hello World!
+22: Hello World!
+23: Hello World!
+24: Hello World!
+27: Hello World!
+20: Hello World!
+13: Hello World!
+29: Hello World!
+11: Hello World!
+28: Hello World!
+31: Hello World!
+30: Hello World!
+26: Hello World!
+25: Hello World!
+
+main(): Created 32 threads.
+0: Hello World!
+1: Hello World!
+29: Hello World!
+2: Hello World!
+31: Hello World!
+10: Hello World!
+12: Hello World!
+18: Hello World!
+9: Hello World!
+15: Hello World!
+21: Hello World!
+16: Hello World!
+8: Hello World!
+26: Hello World!
+6: Hello World!
+27: Hello World!
+4: Hello World!
+11: Hello World!
+3: Hello World!
+13: Hello World!
+7: Hello World!
+30: Hello World!
+5: Hello World!
+17: Hello World!
+22: Hello World!
+14: Hello World!
+19: Hello World!
+23: Hello World!
+20: Hello World!
+25: Hello World!
+24: Hello World!
+28: Hello World!
+
+
+-------------------------------------------------------
+
+Zad 3
+
+W programie bug3.c jest problem polegający na wyjściu thread. 
+Zmieniono wskaźnik z taskid = *(long*)threadid; na wskaźnik taskid = (long*)threadid.  Usunięto referencję przy (void *) t
+
+BYŁO:
+Creating thread 0
+Creating thread 1
+Creating thread 2
+Creating thread 3
+Creating thread 4
+Creating thread 5
+Creating thread 6
+Creating thread 7
+Hello from thread 8
+Hello from thread 8
+Hello from thread 8
+Hello from thread 8
+Hello from thread 8
+Hello from thread 8
+Hello from thread 8
+Hello from thread 8
+
+JEST:
+Creating thread 0
+Creating thread 1
+Creating thread 2
+Creating thread 3
+Creating thread 4
+Creating thread 5
+Creating thread 6
+Creating thread 7
+Hello from thread 0
+Hello from thread 1
+Hello from thread 2
+Hello from thread 3
+Hello from thread 4
+Hello from thread 5
+Hello from thread 6
+Hello from thread 7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
